@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Define background images for each grid item */
+.grid-item:nth-child(1) {
+    background-image: url('assets/img/slide/TechWing.jpg');
+}
+
+.grid-item:nth-child(2) {
+    background-image: url('assets/img/slide/Team.jpg');
+}
+
+.grid-item:nth-child(3) {
+    background-image: url('assets/img/slide/community.png');
+}
+
+.grid-item:nth-child(4) {
+    background-image: url('calendar.jpg');
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    /* Cursor style change on hover */
+    cursor: pointer;
+    transition: 0.3s;
+    background-size: cover; /* Adjust this as needed */
+    /* background-size: 100% 100%; Set both width and height to 100% */
+    background-repeat: no-repeat;
+    background-position: center center;}
+h2 {
+    margin: 0;
+    font-size: 24px;
+}
