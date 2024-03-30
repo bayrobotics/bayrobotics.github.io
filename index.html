@@ -37,31 +37,55 @@
 
   check out http://web.archive.org/web/20211219124317/http://bayrobotics.org/
   ======================================================== -->
+
+
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center">
+<!-- ======= Banner Section ======= -->
+<section id="banner" style="background-color: #333; color: #fff; padding: 10px 0; position: fixed; z-index: 999; width: 100%">
+  <div class="container">
+      <p style="color: #fff;">
+          Latest News: Congratulations to FTC Team 10829 Bay Robotics for winning the 2023-2024 State 
+          Competition! They will participate in the World Championship in Houston, Texas. 
+          See the <a href="upcoming.html">Events</a> page for more details.
+      </p>
+  </div>
+</section>
+<!-- End Banner Section -->
 
-      <h1 class="logo me-auto"><a href="index.html">Bay Robotics</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <!-- add a banner text over solid color to the top of the page -->
+  <div class="container d-flex align-items-center">
+    <h1 class="logo me-auto"><a href="index.html">Bay Robotics Charity</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="donate.html">Donate</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="upcoming.html">Events</a> </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="upcoming.html">Events</a> </li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
 
-    </div>
-  </header><!-- End Header -->
+  </div>
+</header><!-- End Header -->
+<script>
+  <!-- Add margin to the header to make room for the banner -->
+  window.addEventListener('DOMContentLoaded', function() {
+    var bannerHeight = document.getElementById('banner').offsetHeight;
+    document.getElementById('header').style.marginTop = bannerHeight + 'px';
+  });
 
+  window.addEventListener('resize', function() {
+    var bannerHeight = document.getElementById('banner').offsetHeight;
+    document.getElementById('header').style.marginTop = bannerHeight + 'px';
+  });
+</script>
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -81,13 +105,12 @@
           </div>
         </div>
 
-
         <!-- Slide 2 -->
         <div class="carousel-item" style="background-image: url(assets/img/slide/Team.jpg)">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Robotics Club</h2>
-              <p class="animate__animated animate__fadeInUp">We support <a href="https://www.firstinspires.org/"><b>FIRST®</b></a> robotics teams in our community and help with creating new teams. Each year, a robot is constructed that competes in local, nation wide, and international competitions. Students operate a model business with fundraising and community outreach while utilizing skills in programming, CAD, industrial design, and engineering to build a robot capable of performing the tasks given in the yearly FTC challenge. We compete in 2-4 yearly statewide competitions.</p>
+              <p class="animate__animated animate__fadeInUp">We support <a href="https://www.firstinspires.org/"><b>FIRST®</b></a> robotics teams in our community and help with creating new teams. Each year, robots are constructed that compete in local, nation wide, and international competitions. Students operate a model business with fundraising and community outreach while utilizing skills in programming, CAD, industrial design, and engineering to build a robot capable of performing the tasks given in the yearly challenge.</p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
