@@ -44,6 +44,7 @@
 <body>
 
 <!-- ======= Banner Section ======= -->
+<!--
 <section id="banner" style="background-color: #333; color: #fff; padding: 10px 0; position: fixed; z-index: 999; width: 100%">
   <div class="container">
       <p style="color: #fff;">
@@ -53,6 +54,52 @@
       </p>
   </div>
 </section>
+-->
+<script>
+  <!-- Add margin to the header to make room for the banner -->
+  window.addEventListener('DOMContentLoaded', function() {
+    var bannerHeight = document.getElementById('banner').offsetHeight;
+    document.getElementById('header').style.marginTop = bannerHeight + 'px';
+  });
+
+  window.addEventListener('resize', function() {
+    var bannerHeight = document.getElementById('banner').offsetHeight;
+    document.getElementById('header').style.marginTop = bannerHeight + 'px';
+  });
+</script>
+
+<section id="banner" style="background-color: #333; color: #fff; padding: 20px 0; position: relative; z-index: 999; width: 100%;">
+  <div class="container">
+    <div class="banner-content">
+      <p style="color: #fff;">
+        Congratulations to FTC Team 10829 Bay Robotics for winning State! 
+        They will participate in the 2024 FIRST Championship in Houston, Texas
+        <a href="upcoming.html">(see here)</a>.
+    </p>
+    </div>
+    <span id="closeBtn" class="banner-close">&times;</span>
+  </div>
+</section>
+<style>
+  .banner-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.getElementById('closeBtn');
+    var bannerSection = document.getElementById('banner');
+    closeBtn.addEventListener('click', function() {
+      bannerSection.style.display = 'none';
+      bannerHeight = 0;
+      document.getElementById('header').style.marginTop = bannerHeight + 'px';
+    });
+  });
+</script>
 <!-- End Banner Section -->
 
 <header id="header" class="fixed-top d-flex align-items-center">
@@ -75,18 +122,6 @@
 
   </div>
 </header><!-- End Header -->
-<script>
-  <!-- Add margin to the header to make room for the banner -->
-  window.addEventListener('DOMContentLoaded', function() {
-    var bannerHeight = document.getElementById('banner').offsetHeight;
-    document.getElementById('header').style.marginTop = bannerHeight + 'px';
-  });
-
-  window.addEventListener('resize', function() {
-    var bannerHeight = document.getElementById('banner').offsetHeight;
-    document.getElementById('header').style.marginTop = bannerHeight + 'px';
-  });
-</script>
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
