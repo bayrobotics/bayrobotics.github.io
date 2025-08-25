@@ -25,23 +25,94 @@
             z-index: 100;
         }
 
-        .nav ul {
-            list-style: none;
+        .nav-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .nav a {
+        .nav-brand {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu a {
             color: white;
             text-decoration: none;
-            padding: 5px 10px;
+            padding: 8px 12px;
             transition: color 0.3s ease;
+            border-radius: 4px;
         }
 
-        .nav a:hover {
+        .nav-menu a:hover {
             color: #e74c3c;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #2c3e50;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 12px;
+                border-radius: 4px;
+            }
+
+            .nav-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
         }
 
         .container {
@@ -164,17 +235,25 @@
 <body>
     <nav class="nav">
         <div class="container">
-            <ul>
-                <li><a href="../index.html">Charity Home</a></li>
-                <li><a href="index.html">Club Home</a></li>
-                <li><a href="education.html">Comprehensive Education</a></li>
-                <li><a href="competition.html">Competition Ready</a></li>
-                <li><a href="industry.html">Industry Connections</a></li>
-                <li><a href="innovation.html">Innovation Protection</a></li>
-                <li><a href="ethics.html">Ethical Leadership</a></li>
-                <li><a href="community.html">Community Impact</a></li>
-                <li><a href="volunteer.html">Volunteer Professionals</a></li>
-            </ul>
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">Whitefish Bay Robotics Club</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="../index.html">Charity Home</a></li>
+                    <li><a href="index.html">Club Home</a></li>
+                    <li><a href="education.html">Comprehensive Education</a></li>
+                    <li><a href="competition.html">Competition Ready Teams</a></li>
+                    <li><a href="industry.html">Industry Connections</a></li>
+                    <li><a href="innovation.html">Innovation Protection</a></li>
+                    <li><a href="ethics.html">Ethical Leadership</a></li>
+                    <li><a href="community.html">Community Impact</a></li>
+                    <li><a href="volunteer.html">Volunteer Professionals</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -191,7 +270,7 @@
                 <h2>Volunteer-Driven Excellence</h2>
                 <p>The Whitefish Bay Robotics Club operates entirely through the dedication and commitment of volunteers. Every year, we rely on parents, professionals, and community members to cover the various operational needs that arise throughout our programs. Your time and expertise are essential to our success and the development of our students.</p>
                 <div style="text-align: center; margin-top: 25px;">
-                    <a href="https://forms.gle/DvVyTWciB4Gqb1Wt5" class="cta-button" target="_blank" style="display: inline-block;">📝 Quick Volunteer Sign-Up</a>
+                    <a href="https://forms.gle/DvVyTWciB4Gqb1Wt5" class="cta-button" target="_blank" style="display: inline-block;">📝 Quick Volunteer Questionnaire</a>
                 </div>
             </div>
 
@@ -290,10 +369,34 @@
             <div class="cta-section">
                 <h2>Ready to Make a Difference?</h2>
                 <p>Your skills and time can help shape the future of robotics education. Whether you have a few hours to spare or want to make a long-term commitment, we have opportunities that match your interests and schedule.</p>
-                <a href="https://forms.gle/DvVyTWciB4Gqb1Wt5" class="cta-button" target="_blank">Sign Up to Volunteer</a>
+                <a href="https://forms.gle/DvVyTWciB4Gqb1Wt5" class="cta-button" target="_blank">Volunteer Questionnaire</a>
                 <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">Or <a href="../contact.html" style="color: #e74c3c;">contact us directly</a> for more information</p>
             </div>
         </div>
     </main>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html> 

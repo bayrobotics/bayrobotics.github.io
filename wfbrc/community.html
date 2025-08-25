@@ -25,12 +25,96 @@
             z-index: 100;
         }
 
-        .nav ul {
-            list-style: none;
+        .nav-container {
+        }
+        
+        .nav-brand {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        .nav-menu {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            list-style: none;
             gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-menu li {
+            margin: 0;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            transition: color 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .nav-menu a:hover {
+            color: #e74c3c;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #2c3e50;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 12px;
+                border-radius: 4px;
+            }
+            
+            .nav-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }            justify-content: space-between;
+            justify-content: space-between;
+            align-items: center;
+            }
+            .nav-brand {
         }
 
         .nav a {
@@ -99,7 +183,14 @@
 <body>
     <nav class="nav">
         <div class="container">
-            <ul>
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">Whitefish Bay Robotics Club</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
                 <li><a href="../index.html">Charity Home</a></li>
                 <li><a href="index.html">Club Home</a></li>
                 <li><a href="education.html">Comprehensive Education</a></li>
@@ -109,6 +200,7 @@
                 <li><a href="ethics.html">Ethical Leadership</a></li>
                 <li><a href="community.html">Community Impact</a></li>
             </ul>
+            </div>
         </div>
     </nav>
 
@@ -130,6 +222,7 @@
                     <li>STEM education advocacy and support</li>
                     <li>Success stories and testimonials</li>
                 </ul>
+            </div>
                 <div class="coming-soon">Coming Soon</div>
             </div>
         </div>
