@@ -51,7 +51,7 @@
         }
         
         .nav-menu {
-            display: flex;
+            display: none;
             list-style: none;
             gap: 20px;
             align-items: center;
@@ -74,58 +74,39 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: #2c3e50;
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
-            
-            .nav-menu.active {
-                display: flex;
-            }
-            
-            .nav-menu li {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .nav-menu a {
-                display: block;
-                padding: 12px;
-                border-radius: 4px;
-            }
-            
-            .nav-menu a:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-        }            justify-content: space-between;
-            justify-content: space-between;
-            align-items: center;
-            }
-            .nav-brand {
+        .hamburger {
+            display: flex;
         }
-
-        .nav a {
-            color: white;
-            text-decoration: none;
-            padding: 5px 10px;
-            transition: color 0.3s ease;
+        
+        .nav-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #2c3e50;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
-        .nav a:hover {
-            color: #e74c3c;
+        
+        .nav-menu.active {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .nav-menu a {
+            display: block;
+            padding: 12px;
+            border-radius: 4px;
+        }
+        
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .container {
@@ -332,5 +313,29 @@
             </div>
         </div>
     </main>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html> 
